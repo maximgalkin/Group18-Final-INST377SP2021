@@ -38,6 +38,34 @@ router.route('/genre/:id')
 })
 
 /// /////////////////////////////////
+/// ////Maxim Playlist Endpoints////////
+/// /////////////////////////////////
+router.route('/playlist')
+.get(async (req, res) => {
+    try {
+        const playlistList = await db.playlist.findAll()
+        res.json({data: playlistList});
+    } catch (err) {
+        console.error(err);
+        res.send({message: 'Error1!'});
+    }
+})
+
+router.route('/playlist/:id')
+.get(async (req, res) => {
+    try {
+      const {id} = req.params;
+      const playlistList = await db.playlist.findAll()
+      res.json({data: playlistList[id]});
+    } catch (err) {
+        console.error(err);
+        res.json({message: 'Error2!'});
+    }
+})
+
+
+
+/// /////////////////////////////////
 /// ////Dining Hall Endpoints////////
 /// /////////////////////////////////
 router.get('/dining', async (req, res) => {

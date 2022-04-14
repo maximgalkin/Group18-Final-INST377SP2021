@@ -20,7 +20,7 @@ router.route('/playlist')
         res.json({data: playlistList});
     } catch (err) {
         console.error(err);
-        res.send({message: 'Error!'});
+        res.send({message: 'Error1!'});
     }
 })
 
@@ -32,7 +32,7 @@ router.route('/playlist/:id')
       res.json({data: playlistList[id]});
     } catch (err) {
         console.error(err);
-        res.json({message: 'Error!'});
+        res.json({message: 'Error2!'});
     }
 })
 
